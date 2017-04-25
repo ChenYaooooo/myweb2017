@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    /**
+     * Given an array of integers, return indices of the two numbers such that they add up to a specific target.
+
+     You may assume that each input would have exactly one solution, and you may not use the same element twice.
+
+     Example:
+     Given nums = [2, 7, 11, 15], target = 9,
+
+     Because nums[0] + nums[1] = 2 + 7 = 9,
+     return [0, 1].
+     * @param {number[]} nums
+     * @param {number} target
+     * @return {number[]}
+     */
+    var twoSum = function(nums, target) {
+        var results = [];
+        for(var i = 0 ; i < nums.length -1 ; i++){
+            for(var j = i+1; j < nums.length; j++){
+                if(nums[i] + nums[j] == target){
+                    results.push(i);
+                    results.push(j);
+                    return results;
+                }
+            }
+        }
+        return results;
+
+    };
+
+    console.log(twoSum([1,2,3,4,5,6],3))
+
+
+    /**
+     * Definition for singly-linked list.
+     * function ListNode(val) {
+ *     this.val = val;
+ *     this.next = null;
+ * }
+     */
+    /**
+     * @param {ListNode} l1
+     * @param {ListNode} l2
+     * @return {ListNode}
+     * your input: [2,4,3] [5,6,4]
+     * output: [7,0,8]
+     */
+    /**
+     * @param {ListNode} l1
+     * @param {ListNode} l2
+     * @return {ListNode}
+     */
+    function  ListNode(val) {
+        this.val = val;
+        this.next= null;
+    }
+
+    var up = 0;
+    var addTwoNumbers = function(l1, l2) {
+        var digit = -1, val,
+                list = new ListNode(digit),
+                result = list;
+
+        while(l1 || l2 || up !==0) {
+            digit = (l1 !== null ? l1.val : 0) + (l2 !== null ? l2.val : 0) + up;
+
+            if (digit >= 10) {
+                val = digit % 10;
+                up = 1;
+            } else {
+                val = digit;
+                up = 0;
+            }
+            if (l1 !== null) {
+                l1 = l1.next;
+            }
+            if (l2 !== null) {
+                l2 = l2.next;
+            }
+
+            list.next = new ListNode(val);
+            list = list.next;
+
+        }
+        return result.next;
+
+    };
+    var list1 = {
+        val: 2,
+        "next":{
+            val:4,
+            "next":{
+                val:3,
+                "next":null
+            }
+        }
+    };
+
+    console.log("l1.var:" + list1.val);
+    var list2 = {
+        val: 5,
+        "next":{
+            val:6,
+            "next":{
+                val:4,
+                "next":null
+            }
+        }
+    };
+    console.log(addTwoNumbers(list1,list2));
+</script>
+</body>
+</html>
