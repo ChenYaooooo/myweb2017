@@ -1,0 +1,71 @@
+body {
+    font: 10px sans-serif;
+}
+
+.axis path,
+.axis line {
+    fill: none;
+    stroke: #000;
+    shape-rendering: crispEdges;
+}
+
+.bar {
+    /*fill:#FF0000;*/
+    /*fill:#FF4545;*/
+    /*fill:#a05d56;*/
+    /*fill:#d0743c;*/
+    /*fill:#ff8c00;*/
+    /*fill:#138A13;*/
+    /*fill:#359A35;*/
+    /*fill:#57AB57;*/
+    /*fill:#78BC78;*/
+    /*fill:#57AB57;*/
+    /*fill:#BCDDBC;*/
+    /*fill:#ff8c00;*/
+    /*fill:#FFE1E1;*/
+    /*fill:#FFADAD;*/
+    /*fill:#FF7979;*/
+    /*fill:#6b486b;*/
+}
+
+.bar:hover {
+    fill: orangered ;
+}
+
+.x.axis path {
+    display: none;
+}
+
+.d3-tip {
+    line-height: 1;
+    font-weight: bold;
+    padding: 12px;
+    background: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    border-radius: 2px;
+}
+
+/* Creates a small triangle extender for the tooltip */
+.d3-tip:after {
+    box-sizing: border-box;
+    display: inline;
+    font-size: 10px;
+    width: 100%;
+    line-height: 1;
+    color: rgba(0, 0, 0, 0.8);
+    content: "\25BC";
+    position: absolute;
+    text-align: center;
+}
+
+/* Style northward tooltips differently */
+.d3-tip.n:after {
+    margin: -1px 0 0 0;
+    top: 100%;
+    left: 0;
+}
+.line {
+    fill: none;
+    stroke: #444;
+    stroke-width: 1.5px;
+}
