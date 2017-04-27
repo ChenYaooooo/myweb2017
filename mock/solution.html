@@ -37,7 +37,7 @@
 
     console.log(twoSum([1,2,3,4,5,6],3))
 
-
+    console.log("***********************************华丽丽分割线***********************************")
     /**
      * Definition for singly-linked list.
      * function ListNode(val) {
@@ -89,7 +89,14 @@
             list = list.next;
 
         }
-        return result.next;
+
+        console.log(result);
+        var reResult = [];
+        while(result.next){
+            reResult.push(result.next.val);
+            result = result.next;
+        }
+        return reResult;
 
     };
     var list1 = {
@@ -115,6 +122,230 @@
         }
     };
     console.log(addTwoNumbers(list1,list2));
+
+    console.log("***********************************华丽丽分割线***********************************")
+    /**
+     * @param {string} s
+     * @return {number}
+     * 真的是漏洞百出呀，条件控制的不严格，改变变量的位置也不对
+     */
+    var lengthOfLongestSubstring = function(s) {
+        var result =0;
+        if(s.length ==1){
+            return 1;
+        }
+        for(var i = 0; i < s.length - 1; i++ ){
+            var chars = [];
+            var found = false;
+            for(var j = i; j < s.length; j++){
+                if(charInArr(s[j], chars)){
+                    if(chars.length > result){
+                        result = chars.length;
+                    }
+                    found = true;
+                    break;
+                }else{
+                    chars.push(s[j]);
+                }
+            }
+            if(!found){
+                if(chars.length > result){
+                    result = chars.length;
+                }
+                break;
+            }
+        }
+        return result;
+    };
+
+    var charInArr = function(char, chars){
+        for(var i = 0; i < chars.length; i++){
+            if(char == chars[i]){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    console.log("lengthOfLongestSubstring:" + lengthOfLongestSubstring("lengthOfLongestSubstring"));
+    console.log("abd:" + lengthOfLongestSubstring("abd"));
+    console.log("c:" + lengthOfLongestSubstring("c"));
+    console.log("aab:" + lengthOfLongestSubstring("aab"));
+    console.log("jbpnbwwd:" + lengthOfLongestSubstring("jbpnbwwd")); //4
+
+    var chars1 = ['h','e','l','l','o'];
+    console.log(charInArr('h',chars1));
+
+    console.log("***********************************中位数***********************************")
+    /**
+     * @param {number[]} nums1
+     * @param {number[]} nums2
+     * @return {number}
+     */
+    var findMedianSortedArrays = function(nums1, nums2) {
+        var median;
+        var i =0, j = 0;
+        var newNum = [];
+        while(i < nums1.length && j < nums2.length){
+            if(nums1[i] <=  nums2[j])
+            {
+                newNum.push(nums1[i++]);
+            }else{
+                newNum.push(nums2[j++]);
+            }
+        }
+
+        while(i < nums1.length){
+            newNum.push(nums1[i++]);
+        }
+        while(j < nums2.length){
+            newNum.push(nums2[j++]);
+        }
+
+
+        if(newNum.length%2 === 0){
+            median = (newNum[newNum.length/2 - 1] + newNum[newNum.length/2])/2;
+        }else{
+            median = newNum[(newNum.length+1)/2 - 1];
+        }
+                console.log(newNum + " " + median);
+        return median;
+
+    };
+    findMedianSortedArrays([1, 3],[2]);
+    findMedianSortedArrays([1, 2],[3,4]);
+
+
+    console.log("***********************************回文序列***********************************")
+    /**
+     * @param {string} s
+     * @return {string}
+     * “回文串”是一个正读和反读都一样的字符串，比如“level”或者“noon”等等就是回文串。
+     * stringObject.substring(start,stop);
+     * stringObject.substr(start,length);
+     *
+     * babad
+     *
+     * Time Limit Exceeded
+     */
+    var longestPalindrome = function(s) {
+
+        if(s.length == 1){
+            return s;
+        }
+        var result = "";
+
+        for(var i = 0 ; i < s.length - 1; i++){
+            {
+                for(var j =i ; j < s.length; j++){
+
+                    var subs = s.substr(i,(j-i)+1);
+                    if(isPalindrome(subs)){
+                        if(subs.length > result.length){
+                            result = subs;
+                        }
+                    }
+                }
+            }
+        }
+
+        return result;
+    };
+
+    var isPalindrome = function(substring){
+        for(var i = 0, j= substring.length -1; i < j; i++,j--){
+            if(substring[i] != substring[j]){
+                    return false;
+                }
+        }
+        return true;
+    }
+
+    var ss="heeh"
+    console.log("hello".substr(1,2));
+    console.log(isPalindrome(ss));
+    console.log(longestPalindrome("babad"));
+    console.log(longestPalindrome("cbbd"));
+    console.log(longestPalindrome("heeeeeeeeh"));
+    console.log(longestPalindrome("abb"));
+
+    longestPalindrome("abb");
+
+
+    /**
+     * @param {string} s
+     * @return {string}
+     * “回文串”是一个正读和反读都一样的字符串，比如“level”或者“noon”等等就是回文串。
+     * stringObject.substring(start,stop);
+     * stringObject.substr(start,length);
+     * babad
+     *
+     * 未完待续。。。
+     *
+     */
+
+    var longestPalindrome1 = function(s) {
+        if(s.length == 1){
+            return s;
+        }
+        var newStrArr = [];
+        newStrArr.push('*');
+        for(var i = 0; i < s.length; i++){
+            newStrArr.push(s[i]);
+            newStrArr.push('*');
+        }
+
+        var len = [0,1];
+        for(var m = 2; m < newStrArr.length; m++){
+            var tmplen = 0;
+            while((m-tmplen -1) >= 0 && (m+tmplen+1) <  newStrArr.length){
+                if(newStrArr[m-tmplen-1] == newStrArr[m+tmplen+1]){
+                    tmplen++;
+                }else{
+                    break;
+                }
+            }
+            len.push(tmplen);
+        }
+        var maxlength = len[0];
+        var loc = 0;
+        for(var x = 1; x < len.length; x++){
+            if(len[x] >  maxlength){
+                loc = x;
+                maxlength = len[x];
+            }
+        }
+
+        var result;
+        var relLoc;
+        var relLen;
+        var left;
+        var right;
+
+        if(loc % 2 == 0){
+            relLoc = loc/2;
+            relLen = maxlength/2;
+            left = relLoc - relLen;
+            right = relLoc + relLen -1;
+        }else{
+            relLoc = (loc-1)/2;
+            relLen = (maxlength-1)/2;
+            left = relLoc - relLen;
+            right = relLoc + relLen;
+
+        }
+        result = s.substring(left, right+1);
+        return result;
+    }
+
+
+//   console.log(longestPalindrome1("babad"));
+//    console.log(longestPalindrome1("cbbd"));
+    console.log(longestPalindrome1("heeeeeeeeh"));
+    console.log(longestPalindrome1("abb"));
+
+
+    console.log("***********************************华丽丽分割线***********************************")
 </script>
 </body>
 </html>
