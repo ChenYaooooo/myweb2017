@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Solutions</title>
 </head>
 <body>
 <script>
@@ -345,6 +345,53 @@
     console.log(longestPalindrome1("abb"));
 
 
+    console.log("***********************************Reverse Integer***********************************")
+    /**
+     * @param {number} x
+     * @return {number}
+     */
+    var reverse = function(x) {
+        if(x < -1047483648 || x > 1047483648){
+            return 0;
+        }
+        if((x < 10 && x > 0) || (x > -10 &&  x <= 0)){
+            return x;
+        }
+
+        var arrs = [];
+        var result = 0;
+        var isNegative = false;
+        if(x < 0){
+            x = -x;
+            isNegative = true;
+        }
+
+        while(x >=10){
+                arrs.push(x%10);
+                x = parseInt(x /10);
+            }
+            if(x > 0){
+                arrs.push(x);
+            }
+            var length = arrs.length;
+
+            for(var k = 0; k < arrs.length; k++){
+                var times = 1;
+               for(var m = 0; m < (length - k -1); m++){
+                   times = times  * 10;
+               }
+                result += arrs[k] * times;
+            }
+        if(isNegative){
+            result = -result;
+        }
+        return result;
+    };
+
+console.log(reverse(12345));
+    console.log(reverse(1534236469));
+    console.log(reverse(1000));
+    console.log(reverse(-4567));
     console.log("***********************************华丽丽分割线***********************************")
 </script>
 </body>
