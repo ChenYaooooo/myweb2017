@@ -2,9 +2,34 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Algorithms</title>
 </head>
 <body>
+<div>
+    <h3>Reverse Integer</h3>
+    <span>
+        需要考虑的问题：
+        <li>
+            1. If the integer's last digit is 0, what should the output be? ie, cases such as 10, 100.
+        </li>
+        <li>
+            2. Did you notice that the reversed integer might overflow? Assume the input is a 32-bit integer, then the reverse of 1000000003 overflows. How should you handle such cases?
+            32位：-2147483648~2147483648
+            这个还是挺烦的，因为反过来不能超过它；自己看着办吧
+        </li>
+        <li>
+            3. 负数：-123情况也没有考虑到
+        </li>
+         <div style="font-weight: bold">后续 Follow Up</div>
+            Q：拿到反转整数题目后第一步是什么？
+        </br>
+        A：先问出题者尾部有0的数字反转后应该是什么形式，其次问清楚溢出时应该返回什么。
+        </br>
 
+        Q：除了检查溢出返回特定值以外，有没有别的方法处理溢出？
+        </br>
+        A：可以使用try-catch代码块排除异常。
+    </span>
+</div>
 </body>
 </html>
