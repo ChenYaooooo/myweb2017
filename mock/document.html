@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>工作记录</title>
+</head>
+<body>
+<style>
+    .answer{
+        color:red;
+    }
+</style>
+<script>
+    var tempDate = new Date("2017-05-22");
+    console.log(tempDate);
+    //默认为utc时间，然后new date又将utc时间转为本机所在时区；所以要先把本地时间转为utc时间
+    //Sun May 21 2017 19:00:00 GMT-0500 (CDT)
+     //Mon May 22 2017 08:00:00 GMT+0800 (CST)
+    var today = new Date();
+    console.log(today);
+</script>
+<div style="width:70%;margin-left: 10%">
+<h3>Tue May 09 2017 11:47:56</h3>
+
+    <p>eclipse build安卓手机版本的时候出现了问题，首先是native文件夹里的一些文件除了问题，PJ把native文件夹重新搞了一下，mobileFirst在build的时候
+没有问题了，但是build 到手机的时候报这个错：
+    Java.lang.UnsupportedClassVersionError: com/Android/dx/command/Main : Unsupported major.minor ver
+        </br>
+    解决办法：<span class="answer">把compile sdk version与Build tool version改成对应的。
+
+之后在clean ,rebuild。</span>
+    </p>
+    <p>
+        定义和用法
+        for 属性规定 label 与哪个表单元素绑定。
+        隐式和显式的联系
+        标记通常以下面两种方式中的一种来和表单控件相联系：将表单控件作为标记标签的内容，这样的就是隐式形式，或者为 &lt;label&gt; 标签下的 for 属性命名一个目标表单 id，这样就是显式形式。</label>
+    </p>
+    <p>
+         <a href="http://stackoverflow.com/questions/42549545/get-value-by-key-jsonarray">jsonarray according to key get value</a>
+    </p>
+    <p>
+        <h4>java中判断两个字符串是否相等的问题</h4>
+        我最近刚学java，今天编程的时候就遇到一个棘手的问题，就是关于判断两个字符串是否相等的问题。在编程中，通常比较两个字符串是否相同的表达式是“==”,但在java中不能这么写。在java中，用的是equals();
+        </br>
+        例：A字符串和B和字符串比较:
+        </br>
+        <strong>if(A.equals(B)){
+        }</strong>
+        </br>
+        返回true 或false.
+        </br>
+        String 的equals 方法用于比较两个字符串是否相等。由于字符串是对象类型，所以不能用简单的“==”判断。而使用equals比较两个对象的内容是否相等。
+        </br>
+        注意：
+        </br>
+        equals()比较的是对象的内容（区分字母的大小写格式），但是如果使用“==”比较两个对象时，比较的是两个对象的内存地址，所以不相等。即使它们内容相等，但是不同对象的内存地址也是不相同的。
+    </p>
+    <p>
+       <a href="http://stackoverflow.com/questions/9373398/how-do-i-pull-the-string-array-from-this-json-object">How do I pull the string array from this json object?</a>
+    </p>
+    <p>
+        按逗号分割字符串：getAsString().trim().split(",")
+    </p>
+    <p>
+        <a href="http://stackoverflow.com/questions/17887348/phonegap-open-link-in-browser">phonegap open link in browser
+        </a>
+        <a href="http://stackoverflow.com/questions/17887348/phonegap-open-link-in-browser">phonegap open link in browser</a>
+</p>
+    <p>
+        <a href="http://xue.hitui.com/ganhuo-15.html">头条号</a>
+        <li>你是头条的水军吧，头条现在就是做让多数新手义务劳动</li>
+        <a href="http://www.jianshu.com/p/4912e2774bbc">头条号如何一篇文章过新手期</a>
+        <a href="https://jingyan.baidu.com/article/20095761c2d74bcb0721b42f.html">百度经验</a>
+    </p>
+</div>
+</body>
+</html>
