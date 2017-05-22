@@ -5,7 +5,8 @@ angular.module('myApp',[])
     .controller('timelineController',['$scope',function($scope){
         $scope.hello = "hello, world.";
         var margin = {top: 40, right: 20, bottom: 30, left: 40};
-        var width = 960 - margin.left - margin.right;
+        // var width = 960 - margin.left - margin.right;
+        var width = 1160;
         var height = 650 - margin.top - margin.bottom;
         var color = d3.scale.ordinal().range(["#57AB57", "#BCDDBC", "#ff8c00", "#FFE1E1", "#FFADAD", "#FF7979", "#6b486b"]);
 
