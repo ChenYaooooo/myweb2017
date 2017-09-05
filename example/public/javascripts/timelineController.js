@@ -60,7 +60,7 @@ angular.module('myApp',[])
 
         var timeflag = parseDate("12:00");
 
-        d3.tsv("data/17-04.tsv", function(error, data) {
+        d3.tsv("data/sleeptime.tsv", function(error, data) {
             data.forEach(function(d) {
                 d.gobedorigin = d.goBed;
                 d.getUporigin = d.getUp;
